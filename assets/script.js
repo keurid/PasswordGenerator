@@ -1,6 +1,4 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
-
 
 var Numbs = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var special = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.']; 
@@ -41,7 +39,7 @@ function generatePassword() {
 
 
   if (passOptions.askNumbers) {
-    for (var i of numbers)
+    for (var i of Numbs)
       possCombo.push(i);
   }
   if (passOptions.askLwrCase) {
@@ -57,9 +55,7 @@ function generatePassword() {
       possCombo.push(i);
   }
 
-
   console.log(possCombo);
-
 
   for (var i = 0; i < passOptions.length; i++) {
     completePass += possCombo[Math.floor(Math.random() * possCombo.length)];
@@ -69,8 +65,6 @@ function generatePassword() {
 
   return completePass;
 }
-
-// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -78,6 +72,4 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
